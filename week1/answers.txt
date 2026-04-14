@@ -1,0 +1,66 @@
+Exercise 1.1: Safety vs. Security:
+
+Safety means preventing the model from risks that caused by unintentional failures. 
+Example: If the model fails to detect the traffic signal as Green due the foggy weather, it will lead to collision with the other vehicles or the Pedestrians.
+
+Security means pretending the model from risks that caused by any intentional attacks. 
+Example:  an attacker could manipulate input images so that the model misclassifies a traffic signal or pedestrian, leading to unsafe decisions.
+
+Exercise 1.3:
+
+Building the right model-- refers to whether the model does the task correctly for Example,  if we are building an autonomous vehicle, checking whether the features are selected correctly. If we add only pedestrian data but miss to add the traffic signal images, the model fail to follow the traffic signal.
+
+Building the model right--- refers to robustness of the model. For example, if the model only trained on images with Non-disabled pedestrians, it fails to detect the pedestrians using wheel chairs.
+
+
+Exercise 1.5:
+
+1) Conditions where I don't trust the model:
+	a) During Night time, since the model was not trained with images with night light.
+	b) In foggy/ rainy weather conditions, as the model do not have enough experience with the other climate conditions that sunny.
+	c) In situations where the model crossing the school area, the model did not learn to go slow in school areas.
+
+2) Though traffic signal and vehicles are important, Pedestrian are more critical as the chance of risk is high. If the model does not recognize a pedestrian, it will directly lead to death/ severe injury. On the other hand, the risks are lesser with vehicle and traffic lights.
+
+3) Before deploying the model, I would require additional information such as the operating conditions (e.g., speed limits and driving environment), as they influence the system’s decision-making.
+
+I would also want to ensure that the training data includes diverse pedestrian types, such as children, elderly individuals, and people with disabilities, to avoid bias and improve generalization.
+
+Furthermore, I would need information about the model’s performance under different weather and lighting conditions, such as rain, fog, and nighttime, to ensure reliability in real-world scenarios.
+
+
+Exercise 1.2:
+
+1) There are mainly four types of risk categories in the EU AI act
+
+a)Unacceptable risks: The risk which are non negotiable, for example collecting the biometric in public, collecting the images of the people in public places.
+
+b) High risk: The models which are requires more attention in training, testing and monitoring. For eg, autonomous vehicle where the model failure leads to severe damage.
+
+c) Limited Risk: The model which requires transparency, for example suggestions of ads through the search history.
+
+d) Minimal risk: The model does not require any safety/security measures. For example, developing games with AI bots.
+
+2) a) An autonomous vehicle will be categorized under the High risk, as we need more attention in model training, testing and monitoring to reduce the high life risks. 
+   b) Chat bot comes under limited risk category, though it is less in risk, It requires transparency  so that people can understand that they are interacting with the AI systems.
+
+Exercise 1.5:
+
+i)Testing helps evaluate the model’s performance and ensures that it makes correct predictions under normal conditions.
+
+ii) Explain ability helps understand why the model makes certain predictions and ensures that it relies on meaningful features.
+
+iii) Uncertainty estimation helps determine how confident the model is in its predictions, allowing safer decisions when confidence is low.
+
+iv) Anomaly detection helps identify unusual or unseen inputs that may lead to unreliable predictions.
+
+v) Adversarial machine learning helps identify and defend against malicious attacks that can manipulate model predictions.
+
+vi) Alignment ensures that the model’s behavior matches the intended goals and avoids harmful or unintended actions.
+
+
+
+
+
+
+
