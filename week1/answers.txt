@@ -13,7 +13,7 @@ Building the right model-- refers to whether the model does the task correctly f
 Building the model right--- refers to robustness of the model. For example, if the model only trained on images with Non-disabled pedestrians, it fails to detect the pedestrians using wheel chairs.
 
 
-Exercise 1.5:
+Exercise 1.4:
 
 1) Conditions where I don't trust the model:
 	a) During Night time, since the model was not trained with images with night light.
