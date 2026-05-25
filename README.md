@@ -21,9 +21,9 @@ Key concepts learned:
 
 ---
 
-# Week 2 – Hazard Analysis and STPA
+# Week 3 – Hazard Analysis and STPA
 
-In the second week, the focus moved towards safety engineering concepts and applying them to the CARLA autonomous driving system.
+In the Third week, the focus moved towards safety engineering concepts and applying them to the CARLA autonomous driving system.
 
 Concepts explored:
 - Hazard
@@ -44,9 +44,9 @@ This week helped connect machine learning with real-world safety engineering pra
 
 ---
 
-# Week 3 – Building Perception Models
+# Week 4 – Building Perception Models
 
-In the third week, three separate binary classification models were developed using PyTorch and ResNet18.
+In the Fourth week, three separate binary classification models were developed using PyTorch and ResNet18.
 
 Models built:
 1. Pedestrian Detection Model
@@ -65,16 +65,17 @@ Tasks completed:
   - F1-score
   - Confusion Matrix
 
-Additional concepts explored:
-- Overfitting and Generalization
-- Distribution Shift
-- ODD (Operational Design Domain)
-- k-Projection Coverage
-- Importance of Recall in Safety-Critical Systems
-
 The pedestrian model analysis particularly highlighted why recall is more important than accuracy in autonomous driving safety applications.
 
 ---
+# Week 5 – Testing
+
+In the Fifth week, we I learnt ML testing and other evaluation ways , K projection and Distribution shift.
+Tasks  completed:
+-Evaluated the models on different test data which includes Foggy, night, town images
+- Designed a Test Suite from Safety Constraints in Ex:2
+- Evaluated K-projection with ODD
+
 
 # Technologies Used
 
