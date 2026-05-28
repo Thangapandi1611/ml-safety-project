@@ -76,6 +76,14 @@ Tasks  completed:
 - Designed a Test Suite from Safety Constraints in Ex:2
 - Evaluated K-projection with ODD
 
+# Week 6 – LLM Safety, Calibration and Backdoor Attacks
+- Explored LLM safety concepts such as temperature sampling, benchmark evaluation, LLM-as-Judge, and prompt injection attacks.
+- Studied AI agent safety, trajectory evaluation, and adversarial behaviour in autonomous systems.
+- Implemented temperature scaling on the pedestrian detector using different temperature values (T = 0.5, 1.0, 2.0) to analyze confidence calibration and safety-trigger behaviour.
+- Observed that temperature scaling changes model confidence while accuracy remained mostly unchanged.
+- Implemented a backdoor attack by poisoning 10% of pedestrian images using a 10×10 red trigger square and flipped labels.
+- Retrained the pedestrian detector on the poisoned dataset and evaluated Clean Recall and Attack Success Rate (ASR).
+- Observed that the model maintained similar clean performance while achieving a high ASR (~76%), demonstrating hidden malicious behaviour in ML systems.
 
 # Technologies Used
 
