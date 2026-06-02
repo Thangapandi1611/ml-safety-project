@@ -75,8 +75,11 @@ Tasks  completed:
 -Evaluated the models on different test data which includes Foggy, night, town images
 - Designed a Test Suite from Safety Constraints in Ex:2
 - Evaluated K-projection with ODD
+  
+---
 
 # Week 6 – LLM Safety, Calibration and Backdoor Attacks
+
 - Explored LLM safety concepts such as temperature sampling, benchmark evaluation, LLM-as-Judge, and prompt injection attacks.
 - Studied AI agent safety, trajectory evaluation, and adversarial behaviour in autonomous systems.
 - Implemented temperature scaling on the pedestrian detector using different temperature values (T = 0.5, 1.0, 2.0) to analyze confidence calibration and safety-trigger behaviour.
@@ -84,6 +87,23 @@ Tasks  completed:
 - Implemented a backdoor attack by poisoning 10% of pedestrian images using a 10×10 red trigger square and flipped labels.
 - Retrained the pedestrian detector on the poisoned dataset and evaluated Clean Recall and Attack Success Rate (ASR).
 - Observed that the model maintained similar clean performance while achieving a high ASR (~76%), demonstrating hidden malicious behaviour in ML systems.
+
+# Week 7 – # Week 6 – LLM Safety, Calibration and Backdoor Attacks
+
+-Learned the importance of Explainable AI (XAI) in ML Safety.
+-Understood Local and Global Explainability.
+-Studied Occlusion, Saliency Maps, CAM, and Grad-CAM.
+-Learned Chain-of-Thought Fidelity and Simulatability concepts.
+-Applied the Occlusion method to CARLA classification models.
+-Generated heatmaps for correct and incorrect predictions.
+-Used explainability to analyze model behavior and failures.
+-Tested models under nighttime conditions (distribution shift).
+-Observed that correct predictions mostly focused on the target objects.
+-Observed that misclassified samples often focused on background regions.
+-Found that nighttime images caused more attention to lighting and road reflections.
+-Noticed a decrease in both model performance and explanation quality under nighttime conditions.
+-Learned how explainability helps identify spurious features and generalization issues.
+
 
 # Technologies Used
 
