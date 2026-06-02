@@ -88,21 +88,21 @@ Tasks  completed:
 - Retrained the pedestrian detector on the poisoned dataset and evaluated Clean Recall and Attack Success Rate (ASR).
 - Observed that the model maintained similar clean performance while achieving a high ASR (~76%), demonstrating hidden malicious behaviour in ML systems.
 
-# Week 7 – # Week 6 – LLM Safety, Calibration and Backdoor Attacks
+# Week 7 – Explainability and Model Diagnostics
 
--Learned the importance of Explainable AI (XAI) in ML Safety.
--Understood Local and Global Explainability.
--Studied Occlusion, Saliency Maps, CAM, and Grad-CAM.
--Learned Chain-of-Thought Fidelity and Simulatability concepts.
--Applied the Occlusion method to CARLA classification models.
--Generated heatmaps for correct and incorrect predictions.
--Used explainability to analyze model behavior and failures.
--Tested models under nighttime conditions (distribution shift).
--Observed that correct predictions mostly focused on the target objects.
--Observed that misclassified samples often focused on background regions.
--Found that nighttime images caused more attention to lighting and road reflections.
--Noticed a decrease in both model performance and explanation quality under nighttime conditions.
--Learned how explainability helps identify spurious features and generalization issues.
+- Learned the importance of Explainable AI (XAI) in ML Safety.
+- Understood Local and Global Explainability.
+- Studied Occlusion, Saliency Maps, CAM, and Grad-CAM.
+- Learned Chain-of-Thought Fidelity and Simulatability concepts.
+- Applied the Occlusion method to CARLA classification models.
+- Generated heatmaps for correct and incorrect predictions.
+- Used explainability to analyze model behavior and failures.
+- Tested models under nighttime conditions (distribution shift).
+- Observed that correct predictions mostly focused on the target objects.
+- Observed that misclassified samples often focused on background regions.
+- Found that nighttime images caused more attention to lighting and road reflections.
+- Noticed a decrease in both model performance and explanation quality under nighttime conditions.
+- Learned how explainability helps identify spurious features and generalization issues.
 
 
 # Technologies Used
