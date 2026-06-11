@@ -104,6 +104,22 @@ Tasks  completed:
 - Noticed a decrease in both model performance and explanation quality under nighttime conditions.
 - Learned how explainability helps identify spurious features and generalization issues.
 
+# Week 8: Anomaly Detection and OOD Detection
+- Learned Anomaly Detection, In-Distribution (ID), and Out-of-Distribution (OOD) concepts.
+- Studied the risks of silent failures in safety-critical ML systems.
+- Learned MSP (Maximum Softmax Probability) as a baseline OOD detector.
+- Implemented and evaluated MSP-based OOD detection on CARLA datasets.
+- Explored feature-based OOD detection using k-NN.
+- Compared OOD detection performance using AUROC.
+- Understood the difference between OOD issues and generalization issues.
+- Extended the STPA safety analysis to include OOD-related hazards and safety constraints.
+- Vehicle and traffic-light models became less confident on fog and night images.
+- The pedestrian model remained highly confident on OOD inputs.
+- MSP achieved an AUROC of 0.8168.
+- k-NN achieved an AUROC of 0.7799.
+- Night images were easier to detect as OOD than fog images.
+- Different-town images were treated as a generalization problem rather than OOD.
+
 
 # Technologies Used
 
