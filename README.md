@@ -119,6 +119,21 @@ Tasks  completed:
 - k-NN achieved an AUROC of 0.7799.
 - Night images were easier to detect as OOD than fog images.
 - Different-town images were treated as a generalization problem rather than OOD.
+# WEEK 9
+What I Learned:
+- Learned the concept of adversarial examples and how small perturbations can fool ML models.
+- Understood the difference between adversarial examples and OOD inputs.
+- Studied FGSM and PGD attacks and how they optimize the input instead of model weights.
+- Learned the concepts of targeted vs. untargeted attacks and perturbation budget (ε).
+- Explored adversarial training and its trade-offs.
+- Extended the STPA safety analysis to include adversarial threats.
+
+Observations:
+- FGSM attacks significantly affected all three CARLA models.
+- The traffic-light model was the most vulnerable to adversarial perturbations.
+- The vehicle model achieved high recall at larger ε values by predicting the positive class for all inputs, showing that recall alone can be misleading.
+- The pedestrian model showed unstable behaviour under stronger attacks.
+- Adversarial robustness improves safety but does not eliminate all risks.
 
 
 # Technologies Used
