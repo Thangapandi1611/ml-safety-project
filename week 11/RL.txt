@@ -1,0 +1,407 @@
+
+Week 11 – Reinforcement Learning (RL) & Alignment
+
+1. Large Language Models (LLMs)
+
+Pre-training
+
+Train on a huge corpus of internet text.
+
+Objective: Next-token prediction using Cross-Entropy Loss.
+
+Learns:
+
+Grammar
+
+Facts
+
+Reasoning patterns
+
+Biases
+
+
+Output: Base model (only completes text, not a chatbot).
+
+
+
+---
+
+2. Supervised Fine-Tuning (SFT)
+
+Purpose
+
+Teach the model how to follow instructions.
+
+Training Data
+
+Prompt → Ideal Response
+
+Example
+
+Prompt:
+Suggest a slogan for recycling.
+
+Response:
+Reduce, Reuse, Recycle!
+
+Characteristics
+
+Uses high-quality demonstrations.
+
+Same next-token prediction objective.
+
+Makes the model conversational.
+
+
+Limitations
+
+Expensive to create demonstrations.
+
+Cannot directly learn human preferences.
+
+May still generate harmful responses.
+
+
+Motivation for Reinforcement Learning.
+
+
+---
+
+3. Reinforcement Learning (RL)
+
+Main Components
+
+Agent
+
+The learner (LLM).
+
+Environment
+
+Everything the agent interacts with.
+
+State (S)
+
+Current situation.
+
+Action (A)
+
+Decision taken by the agent.
+
+Reward (R)
+
+Feedback after taking an action.
+
+Policy (π)
+
+Strategy used by the agent.
+
+Goal:
+
+Maximize Total Reward
+
+
+---
+
+4. Markov Decision Process (MDP)
+
+An RL problem is represented as
+
+(S, A, P, R)
+
+Where
+
+S → States
+
+A → Actions
+
+P → Transition probabilities
+
+R → Reward function
+
+
+Markov Property
+
+Future depends only on the current state, not the entire history.
+
+
+---
+
+5. RL for LLMs
+
+Treat text generation as an RL problem.
+
+RL Concept	LLM Equivalent
+
+State	Prompt + generated tokens
+Action	Next generated token
+Policy	LLM
+Reward	Quality of final response
+
+
+Important:
+
+Reward is usually received only after generating the entire response (Sparse Reward).
+
+
+---
+
+6. Alignment
+
+Capability vs Alignment
+
+Capability
+
+Can the model do the task?
+
+Alignment
+
+Does the model do what humans actually want?
+
+Goal:
+
+Build assistants that are
+
+Helpful
+
+Honest
+
+Harmless
+
+
+
+---
+
+7. Why Alignment is Hard
+
+We optimize a reward, not our true intention.
+
+Intent
+        ↓
+Reward Function
+        ↓
+Model learns Reward
+
+There is always a gap between
+
+Human Intent
+        ≠
+Reward Signal
+
+That gap causes failures.
+
+
+---
+
+8. RLHF (Reinforcement Learning from Human Feedback)
+
+Pipeline
+
+Step 1
+
+Collect human preferences.
+
+Response A
+
+vs
+
+Response B
+
+Humans choose the better response.
+
+
+---
+
+Step 2
+
+Train a Reward Model.
+
+Input
+
+Prompt + Response
+
+Output
+
+Reward Score
+
+Higher score = Better response.
+
+
+---
+
+Step 3
+
+Train the LLM using PPO.
+
+Objective
+
+Maximize Reward
+
+while
+
+Staying close to SFT model
+
+Uses KL-divergence penalty.
+
+
+---
+
+9. PPO (Proximal Policy Optimization)
+
+Purpose
+
+Improve policy gradually without making huge updates.
+
+Advantages
+
+Stable training.
+
+Prevents large policy changes.
+
+Reduces reward hacking.
+
+
+Problems
+
+Needs Policy model.
+
+Needs Reward model.
+
+Needs Reference model.
+
+Computationally expensive.
+
+
+
+---
+
+10. DPO (Direct Preference Optimization)
+
+Idea
+
+Skip the Reward Model completely.
+
+Instead of
+
+Human
+↓
+
+Reward Model
+↓
+
+RL
+
+Use
+
+Human Preference
+
+↓
+
+Direct Optimization
+
+Advantages
+
+Simpler.
+
+Faster.
+
+More stable.
+
+Widely used.
+
+
+
+---
+
+11. RLVR (Reinforcement Learning from Verifiable Rewards)
+
+Instead of human feedback,
+
+reward comes from ground truth.
+
+Example
+
+Math
+
+Correct answer
+
+Reward = 1
+
+Wrong answer
+
+Reward = 0
+
+Applications
+
+Coding
+
+Mathematics
+
+Logic
+
+
+No Reward Model needed.
+
+
+---
+
+12. Failure Modes
+
+Goodharts Law
+
+"When a measure becomes a target, it stops being a good measure."
+
+Example
+
+Optimize benchmark score
+
+≠
+
+Real-world performance.
+
+
+---
+
+Specification Gaming
+
+Model satisfies the written objective,
+
+but violates the intended objective.
+
+
+---
+
+Reward Hacking
+
+Model finds shortcuts to maximize reward
+
+without actually solving the task.
+
+
+---
+
+Goal Misgeneralization
+
+Model learns the wrong goal.
+
+Works well during training,
+
+fails when environment changes.
+
+
+---
+
+13. Safety Perspective
+
+Better capability
+
+≠
+
+Safer AI.
+
+A highly capable model can also become better at exploiting flawed objectives.
+
+Therefore,
+
+Alignment is an AI Safety problem.
+
+
