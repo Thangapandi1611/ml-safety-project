@@ -1,17 +1,20 @@
-# Week 8 – Distribution Shift Analysis and KNN-Based OOD Detection
+````markdown
+# Week 8 – Explainability and Occlusion Analysis
 
 ## Overview
 
-This week investigates model robustness under changing environmental conditions and introduces Out-of-Distribution (OOD) detection.
+This week investigates the explainability of the trained CARLA perception models using an occlusion-based explanation method.
 
-The experiments visualize distribution shifts across multiple CARLA datasets and implement a K-Nearest Neighbors (KNN)-based OOD detector using feature embeddings extracted from the trained ResNet18 vehicle classifier.
+The experiments analyse which regions of an input image influence the model prediction by systematically occluding image regions and measuring the resulting change in prediction score.
+
+The experiments also extend the analysis to nighttime data and compare explanations for correct and incorrect vehicle-model predictions.
 
 ---
 
 ## Folder Contents
 
-- `Visualising_the_Distribution_Shift.ipynb`
-- `KNN_OOD_DECTIYION.ipynb`
+- `Explainability_Occulation(1).ipynb`
+- `Occulation_Vehicle_night_(1).ipynb`
 
 ---
 
@@ -20,94 +23,128 @@ The experiments visualize distribution shifts across multiple CARLA datasets and
 Install the required packages:
 
 ```bash
-pip install torch torchvision numpy pandas matplotlib pillow opencv-python scikit-learn seaborn
-```
+pip install torch torchvision numpy pandas matplotlib pillow scikit-learn
+````
 
 ---
 
 ## Dataset
 
-The notebooks require:
+The notebooks require the CARLA datasets used in the previous experiments:
 
-```
-validation/
+```text
 test/
-test-fog/
 test-night/
-test-town-01/
 
 rgb-front/
 labels.csv
 ```
 
-Pre-trained model:
+Download the datasets from:
 
-```
+[https://drive.google.com/drive/folders/1xrseTTZAbfLkhn83mjTpT9XJNUzhd1m0?usp=sharing](https://drive.google.com/drive/folders/1xrseTTZAbfLkhn83mjTpT9XJNUzhd1m0?usp=sharing)
+
+---
+
+## Pre-trained Models
+
+The notebooks use the trained ResNet18 perception models:
+
+```text
+pedestrian_model.pth
 Vehicle_model.pth
+Traffic_Light_model.pth
 ```
 
-Update all dataset and model paths before running the notebooks.
+Download the trained models from:
+
+[https://drive.google.com/drive/folders/1_3ErNfpXeV3PUcuBYP56xpVimwahzHDi?usp=sharing](https://drive.google.com/drive/folders/1_3ErNfpXeV3PUcuBYP56xpVimwahzHDi?usp=sharing)
+
+Update the dataset and model paths in the notebooks before running them.
 
 ---
 
 ## How to Reproduce the Results
 
-### 1. Distribution Shift Visualization
+### 1. Occlusion-Based Explainability
 
 Run:
 
-```
-Visualising_the_Distribution_Shift.ipynb
+```text
+Explainability_Occulation(1).ipynb
 ```
 
 This notebook:
 
-- Loads the trained pedestrian, vehicle and traffic-light classifiers.
-- Visualizes images from different environmental conditions.
-- Compares datasets collected under:
-  - Sunny
-  - Fog
-  - Night
-  - Different town
-- Demonstrates how environmental changes introduce distribution shifts that can affect model performance.
+* Loads the trained pedestrian, vehicle and traffic-light classifiers.
+* Loads selected CARLA test images.
+* Calculates the original model prediction score.
+* Systematically occludes regions of the input image.
+* Re-evaluates the model after each occlusion.
+* Calculates the change in prediction score.
+* Generates an occlusion heatmap.
+* Overlays the heatmap on the original image.
+* Analyses selected prediction examples, including incorrect predictions.
+
+The occlusion configuration uses:
+
+```text
+Patch size: 32 × 32
+Stride: 16 pixels
+```
+
+The importance of an image region is calculated from the difference between the original prediction score and the score after that region is occluded.
 
 ---
 
-### 2. KNN-Based Out-of-Distribution Detection
+### 2. Vehicle Model Occlusion on Nighttime Data
 
 Run:
 
-```
-KNN_OOD_DECTIYION.ipynb
+```text
+Occulation_Vehicle_night_(1).ipynb
 ```
 
 This notebook:
 
-- Loads the trained vehicle classifier.
-- Extracts deep feature embeddings from the ResNet18 backbone.
-- Builds a K-Nearest Neighbors (KNN) model using validation features.
-- Computes nearest-neighbor distances for in-distribution and out-of-distribution samples.
-- Uses these distances as OOD scores.
-- Evaluates the detector using ROC-AUC and visualizes the separation between ID and OOD samples.
+* Loads the trained vehicle classifier.
+* Loads the CARLA nighttime dataset.
+* Evaluates the vehicle model on nighttime images.
+* Separates correct and incorrect predictions.
+* Selects examples from both groups.
+* Generates occlusion heatmaps for selected correct predictions.
+* Generates occlusion heatmaps for selected incorrect predictions.
+* Compares which image regions influence the model's predictions.
+
+The nighttime evaluation uses a probability threshold of **0.5** for binary classification.
 
 ---
 
 ## Expected Outputs
 
-Running all notebooks will produce:
+Running the notebooks will produce:
 
-- Distribution shift visualizations.
-- Deep feature embeddings.
-- KNN distance-based OOD scores.
-- ROC-AUC evaluation for OOD detection.
-- Visual comparisons between in-distribution and out-of-distribution datasets.
+* Original input images.
+* Occlusion heatmaps.
+* Heatmap overlays on the original images.
+* Explainability results for pedestrian, vehicle and traffic-light models.
+* Explainability results for selected incorrect predictions.
+* Vehicle-model evaluation on nighttime data.
+* Occlusion visualizations for correct and incorrect nighttime predictions.
 
 ---
 
 ## Notes
 
-- All experiments use the previously trained ResNet18 vehicle classifier.
-- Images are resized to **224 × 224** before inference.
-- Deep feature embeddings are extracted from the penultimate layer of ResNet18.
-- KNN-based distance serves as an uncertainty measure for detecting out-of-distribution samples.
-- The experiments evaluate how environmental changes impact feature representations and model reliability.
+* The experiments use the previously trained ResNet18 perception models.
+* Images are resized to **224 × 224** before inference.
+* Occlusion uses a **32 × 32** patch with a **16-pixel stride**.
+* Occluded image regions are replaced with zero-valued pixels.
+* The importance score is based on the change in model prediction score after occlusion.
+* The nighttime experiment specifically evaluates the **vehicle model**.
+* The traffic-light model predicts traffic-light **presence**, not its red/green state.
+* No additional model training is performed in these notebooks.
+* The occlusion analysis provides qualitative evidence about which visual regions influence the model's predictions.
+
+```
+```
