@@ -135,6 +135,19 @@ Observations:
 - The pedestrian model showed unstable behaviour under stronger attacks.
 - Adversarial robustness improves safety but does not eliminate all risks.
 
+#Week 10
+What I Learned:
+Learned the difference between aleatoric and epistemic uncertainty and why epistemic uncertainty is important for OOD inputs.
+Understood model calibration and how Expected Calibration Error (ECE) measures whether confidence matches actual accuracy.
+Learned temperature scaling as a way to improve the reliability of model confidence.
+Learned how cost-sensitive decision thresholds can be derived when false negatives are much more costly than false positives.
+Understood how calibrated confidence can be connected to the STPA safety analysis through causal loss scenarios and safety constraints.
+Observations:
+The pedestrian model's ECE improved from 0.0992 to 0.0362 after temperature scaling, satisfying the proposed ECE < 0.05 constraint.
+The cost-optimal threshold was τ = 0.0099, much lower than the standard 0.5 threshold because missing a pedestrian has a much higher cost.
+The calibrated model with τ = 0.0099 achieved the lowest total loss of 2904, compared with 54607 at the standard 0.5 threshold.
+Calibration improves the trustworthiness of confidence scores, but calibration alone does not guarantee correct predictions; a system-level fallback is still required.
+A highly confident false negative can become a causal factor for the existing unsafe control action, so calibrated uncertainty needs to be considered in the safety case.
 
 # Technologies Used
 
