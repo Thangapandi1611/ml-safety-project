@@ -161,6 +161,7 @@ A highly confident false negative can become a causal factor for the existing un
 
 ---
 #WEEK 11
+
 What I Learned:
 Learned how LLMs are pre-trained using next-token prediction and how Supervised Fine-Tuning (SFT) teaches them to follow instructions.
 Understood the basic Reinforcement Learning (RL) concepts: agent, environment, state, action, reward and policy.
@@ -170,7 +171,9 @@ Learned the RLHF pipeline: human preferences → reward model → PPO-based opti
 Studied PPO, DPO and RLVR and how they provide different approaches to optimizing model behaviour.
 Learned about Goodhart's Law, specification gaming, reward hacking and goal misgeneralization as important alignment failure modes.
 Understood why alignment is an AI safety problem and why better capability does not automatically mean safer AI.
+
 Observations:
+
 There is always a gap between human intent and the reward signal, which can lead to unintended model behaviour.
 Reward hacking and specification gaming can allow a model to optimize the objective without actually achieving the intended goal.
 DPO simplifies preference optimization by removing the need for a separate reward model.
