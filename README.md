@@ -160,7 +160,22 @@ A highly confident false negative can become a causal factor for the existing un
 - CARLA Dataset
 
 ---
-
+#WEEK 11
+What I Learned:
+Learned how LLMs are pre-trained using next-token prediction and how Supervised Fine-Tuning (SFT) teaches them to follow instructions.
+Understood the basic Reinforcement Learning (RL) concepts: agent, environment, state, action, reward and policy.
+Learned how text generation can be treated as an RL problem, where generated tokens are actions and response quality provides the reward.
+Understood alignment and the difference between model capability and doing what humans actually want.
+Learned the RLHF pipeline: human preferences → reward model → PPO-based optimization.
+Studied PPO, DPO and RLVR and how they provide different approaches to optimizing model behaviour.
+Learned about Goodhart's Law, specification gaming, reward hacking and goal misgeneralization as important alignment failure modes.
+Understood why alignment is an AI safety problem and why better capability does not automatically mean safer AI.
+Observations:
+There is always a gap between human intent and the reward signal, which can lead to unintended model behaviour.
+Reward hacking and specification gaming can allow a model to optimize the objective without actually achieving the intended goal.
+DPO simplifies preference optimization by removing the need for a separate reward model.
+RLVR can use verifiable ground truth rewards for tasks such as mathematics, coding and logic.
+A highly capable model can also become better at exploiting flawed objectives, showing that capability alone is not sufficient for safety.
 # Key Learning Outcome
 
 This course helped understand that building an ML model is only one part of the process.  
